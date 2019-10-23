@@ -1,0 +1,1298 @@
+{
+	"info": {
+		"_postman_id": "a2768ff5-edc2-439a-ba35-b4495a0e17c3",
+		"name": "Standalone: 10.90.20.200 Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "VW_Get",
+			"item": [
+				{
+					"name": "Auth_Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cd266692-a0d3-4fe2-b5db-539f1bf9e64c",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody)",
+									"postman.setEnvironmentVariable(\"tokenId1\",jsonData.tokenId)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-OpenAM-Username",
+								"value": "admin",
+								"type": "text"
+							},
+							{
+								"key": "X-OpenAM-Password",
+								"value": "password",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm333.empirix.com/openam/json/authenticate",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm333",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"openam",
+								"json",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post_Add_Test",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"client_id\": 1212,\"name\": \"Welcome3\",\n\"script_id\":1}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/tests",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"tests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "40b8db2d-ef43-4a87-9cb3-134062357891",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "iPlanetDirectoryPro={{tokenId1}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/tests",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"tests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test_Execute",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e4fb43be-7aee-4946-82ab-70b74d5c9577",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "iPlanetDirectoryPro={{tokenId1}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/tests/2041/execute",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"tests",
+								"2041",
+								"execute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Script",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ac753e1-f79c-42ca-b215-7e8911e5a584",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/scripts",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"scripts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Script-csv",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fe5192d4-b191-4417-8373-ac4493ef4b7e",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/scripts",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"scripts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "script-input-params",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "63ca4bc0-fbb2-46b8-99c2-00b776082dde",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/scripts",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"scripts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "releases",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2365e261-3c66-4442-8b5d-5bd213441a49",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/scripts",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"scripts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "partners",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7610841e-4c4d-4e7f-a3b3-fa4fc8002c26",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/partners",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"partners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "works",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c923ac23-199c-4ecc-b1a6-fd6d2bfa0ad6",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/works",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"works"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Script summary",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c0743474-d4f5-4ad7-a884-0fb38edaa297",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/scripts/summary",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"scripts",
+								"summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hammer-groups",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5b6e85c6-e88c-4718-93e5-e42f7c26a9bf",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/hammer-groups",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"hammer-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tags",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "01880672-b168-4b40-a488-cfdf52730c6c",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/tags",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "53d7bc68-895a-41e4-9e2d-45f19a22c65f",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/user-info",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"user-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ff68029e-1a6b-4f8f-8c1e-0618adaad7c2",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/clients",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1b9b6529-3171-445b-80b3-d2511c2d92a9",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/users/admin/notifications",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"users",
+								"admin",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clients_Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/users/admin/notifications",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"users",
+								"admin",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test_result",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f5666f5a-5240-4296-97c3-2672b169d5ae",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "iPlanetDirectoryPro={{tokenId1}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "id",
+								"value": "2039",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/test-results",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"test-results"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Client-Info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0eaf2a04-7457-4c98-b6ee-3a5776d11d10",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/clients/1671/info",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"clients",
+								"1671",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vw-dashboard",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8780e8df-2f37-4a5c-9368-3d429df8d7f9",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "test_id",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/vw-dashboard",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"vw-dashboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notification",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fe14574d-7fbf-4a29-a874-220606dead7b",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/notifications",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notification Audit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "966c45fb-adf9-41b7-ab42-4e82e04819f6",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/audit-logs?client-name=Empirix",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"audit-logs"
+							],
+							"query": [
+								{
+									"key": "client-name",
+									"value": "Empirix"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alerts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ec1d19b0-f771-4701-ae01-f4c9edc3e0a0",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/triggered-alerts",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"triggered-alerts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hammer_labels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9895108c-e20e-4cfc-ac89-5d9f21bd90ac",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/hammer-labels",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"hammer-labels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d4773261-ac36-42b6-8818-85f3783c83dc",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/admin-dashboard/summary",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"admin-dashboard",
+								"summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin_dashboard",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a223167-3cc0-4f88-b734-1cab8721bbfd",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(408);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/admin-dashboard/details",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"admin-dashboard",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "csv_tran",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "224eafda-44e6-43a0-84d2-c311b039c099",
+								"exec": [
+									"// example using pm.response.to.have\r",
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(408);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "iPlanetDirectoryPro={{tokenId1}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://os-2k16-vm332.empirix.com/webapp/admin-dashboard/details",
+							"protocol": "https",
+							"host": [
+								"os-2k16-vm332",
+								"empirix",
+								"com"
+							],
+							"path": [
+								"webapp",
+								"admin-dashboard",
+								"details"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
